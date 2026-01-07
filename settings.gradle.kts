@@ -21,3 +21,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "Base MultiModule Architecture"
 include(":app")
+include(":core:core-network")
+include(":core:core-utils")
+include(":core:core-local")
