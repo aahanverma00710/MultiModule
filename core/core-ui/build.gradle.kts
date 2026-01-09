@@ -52,4 +52,13 @@ dependencies {
      * */
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
+    // ViewModel
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+
+    // Lifecycle (repeatOnLifecycle, lifecycleScope)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+
+    // Kotlin Coroutines
+    implementation(libs.kotlinx.coroutines.android)
+
 }
