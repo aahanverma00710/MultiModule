@@ -68,5 +68,8 @@ dependencies {
     ksp(libs.room.compiler)
 
     implementation(project(":core:core-ui"))
+    implementation(project(":core:core-network"))
+    implementation(project(":core:core-local"))
+    implementation(libs.androidx.datastore.preferences)
 
 }
