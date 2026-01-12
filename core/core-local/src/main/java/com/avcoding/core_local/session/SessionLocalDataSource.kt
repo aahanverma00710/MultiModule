@@ -5,6 +5,8 @@ import com.avcoding.core_local.di.PreferenceKeys
 import com.avcoding.core_network.interceptor.HeaderMode
 import com.avcoding.core_network.interceptor.HeaderModeStore
 import com.avcoding.core_network.interceptor.TokenProvider
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.runBlocking
 import javax.inject.Inject
 
 class SessionLocalDataSource @Inject constructor(
@@ -14,14 +16,13 @@ class SessionLocalDataSource @Inject constructor(
     @Volatile private var token: String? = null
     @Volatile private var headerMode: HeaderMode = HeaderMode.NONE
 
-    suspend fun init() {
-        token = appDataStore.read(PreferenceKeys.AUTH_TOKEN)
-        headerMode =
-            appDataStore.read(PreferenceKeys.HEADER_MODE)
-                ?.let { HeaderMode.valueOf(it) }
-                ?: HeaderMode.NONE
+    fun initSync() {
+        runBlocking(Dispatchers.IO) {
+            token = appDataStore.read(PreferenceKeys.AUTH_TOKEN)
+            headerMode = appDataStore.read(PreferenceKeys.HEADER_MODE)
+                ?.let { HeaderMode.valueOf(it) } ?: HeaderMode.NONE
+        }
     }
-
     suspend fun onLogin(newToken: String) {
         token = newToken
         headerMode = HeaderMode.AUTH

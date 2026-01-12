@@ -16,11 +16,7 @@ class MultiModuleApplication : Application()  {
 
     override fun onCreate() {
         super.onCreate()
-
-        // Always runs before ANY background / foreground work
-        CoroutineScope(Dispatchers.IO).launch {
-            sessionLocalDataSource.init()
-        }
+        sessionLocalDataSource.initSync()
     }
 
 }
