@@ -38,6 +38,7 @@ android {
     buildFeatures {
         viewBinding = true
         dataBinding = true
+        buildConfig = true
     }
 }
 hilt {
@@ -70,6 +71,7 @@ dependencies {
     implementation(project(":core:core-ui"))
     implementation(project(":core:core-network"))
     implementation(project(":core:core-local"))
+    implementation(project(":core:core-logging"))
     implementation(libs.androidx.datastore.preferences)
 
 }
