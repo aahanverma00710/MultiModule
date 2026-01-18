@@ -48,4 +48,19 @@ dependencies {
      * */
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
+
+    // --- Retrofit ---
+    api(libs.retrofit)
+    api(libs.converter.moshi)
+
+    // --- OkHttp ---
+    api(libs.okhttp)
+    api(libs.logging.interceptor)
+
+    // --- Moshi ---
+    api(libs.moshi.kotlin)
+
+    // --- Coroutines ---
+    api(libs.kotlinx.coroutines.core)
+
 }

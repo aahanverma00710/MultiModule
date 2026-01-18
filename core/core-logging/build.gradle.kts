@@ -1,12 +1,10 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.hilt)
-    alias(libs.plugins.ksp)
 }
 
 android {
-    namespace = "com.avcoding.core_ui"
+    namespace = "com.avcoding.core_logging"
     compileSdk = 36
 
     defaultConfig {
@@ -32,10 +30,6 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
-    buildFeatures {
-        viewBinding = true
-        dataBinding = true
-    }
 }
 
 dependencies {
@@ -46,19 +40,4 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-
-    /**
-     * Hilt
-     * */
-    implementation(libs.hilt.android)
-    ksp(libs.hilt.compiler)
-    // ViewModel
-    implementation(libs.androidx.lifecycle.viewmodel.ktx)
-
-    // Lifecycle (repeatOnLifecycle, lifecycleScope)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
-
-    // Kotlin Coroutines
-    implementation(libs.kotlinx.coroutines.android)
-
 }

@@ -56,4 +56,11 @@ dependencies {
     implementation(libs.room.ktx)
     ksp(libs.room.compiler)
 
+    api(libs.androidx.datastore.preferences)
+
+    api(libs.kotlinx.coroutines.core)
+    api(libs.kotlinx.coroutines.android)
+
+    implementation(project(":core:core-network"))
+
 }
